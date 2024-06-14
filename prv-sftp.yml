@@ -298,6 +298,7 @@ Resources:
   GetUserConfigLambda:
     Type: AWS::Lambda::Function
     Properties:
+      FunctionName: GetUserConfigLambda
       Code:
         ZipFile:
           Fn::Sub: |
