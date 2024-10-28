@@ -95,8 +95,8 @@ Resources:
             Statement:
             - Effect: Allow
               Action:
-                - s3:ListBucket
-                - s3:GetBucketLocation
+                - s3:List*
+                - s3:Get*
               Resource:
                 - !Sub arn:aws:s3:::${S3Bucket}
             - Effect: Allow
@@ -245,7 +245,7 @@ Resources:
     Type: AWS::ApiGateway::Stage
     Properties:
       DeploymentId:
-        Ref: ApiDeployment202008
+        Ref: ApiDeployment
       MethodSettings:
       - DataTraceEnabled: false
         HttpMethod: "*"
@@ -254,7 +254,7 @@ Resources:
       RestApiId:
         Ref: CustomIdentityProviderApi
       StageName: prod
-  ApiDeployment202008:
+  ApiDeployment:
     DependsOn:
     - GetUserConfigRequest
     Type: AWS::ApiGateway::Deployment
